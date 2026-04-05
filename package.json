@@ -8,8 +8,8 @@
     "typecheck": "tsc --noEmit",
     "build": "npm run typecheck && vite build",
     "predeploy": "npm run build && cp dist/index.html dist/404.html && ./copy-dist.sh",
-    "deploy:ssh": "gh-pages -d dist -r git@github.com:wedding-sunghyun-gaeun/wedding-sunghyun-gaeun.github.io.git -b gh-pages -m \"deploy: {datetime}\"",
-    "deploy:https": "gh-pages -d dist -r https://github.com/wedding-sunghyun-gaeun/wedding-sunghyun-gaeun.github.io.git -b gh-pages -m \"deploy: {datetime}\""
+    "deploy:ssh": "gh-pages -d dist -r git@github.com:sunghyun-gaeun/sunghyun-gaeun.github.io.git -b gh-pages -m \"deploy: {datetime}\"",
+    "deploy:https": "gh-pages -d dist -r https://github.com/sunghyun-gaeun/sunghyun-gaeun.github.io.git -b gh-pages -m \"deploy: {datetime}\""
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -51,5 +51,5 @@
     "typescript-eslint": "^8.0.0",
     "vite": "^6.1.6"
   },
-  "homepage": "https://wedding-sunghyun-gaeun.github.io/"
+  "homepage": "https://sunghyun-gaeun.github.io/"
 }
