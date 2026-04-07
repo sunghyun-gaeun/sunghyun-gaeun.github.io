@@ -18,8 +18,15 @@ const Maps = ({ address }: MapProps) => {
 
   useEffect(() => {
     if (!address) return;
-    naver.maps.Service.geocode({ query: address }, (status, response) => {
-      if (status === naver.maps.Service.Status.OK) {
+    if (!(window as any).naver?.maps?.Service) {
+      console.error("Naver Maps API is not ready");
+      return;
+    }
+
+    const naverObj = (window as any).naver;
+
+    naverObj.maps.Service.geocode({ query: address }, (status: any, response: any) => {
+      if (status === naverObj.maps.Service.Status.OK) {
         const result = response.v2.addresses[0];
         if (result) {
           setCoords({
