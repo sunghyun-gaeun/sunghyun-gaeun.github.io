@@ -71,11 +71,11 @@ const IndexPage = () => {
             />
             <meta
               property="og:image"
-              content={`https://wedding-invitation-dyyh.github.io/${pageId}/main/main.jpg`}
+              content={`https://sunghyun-gaeun.github.io/${pageId}/main/main.jpg`}
             />
             <meta
               property="og:url"
-              content={`https://wedding-invitation-dyyh.github.io/${pageId}`}
+              content={`https://sunghyun-gaeun.github.io/${pageId}`}
             />
           </Helmet>
           <Snowfall
