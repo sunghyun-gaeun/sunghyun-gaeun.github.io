@@ -91,7 +91,7 @@ const SimpleLayout = ({ id, data }: LayoutProp) => {
       </motion.div>
       <motion.div>
       <Wrapper>
-        <NeonSign text={`화환은 로비 공간이 부족하니,\n마음만 보내주세요`} />
+        <Heading1 text={`화환은 로비 공간이 부족하니,\n마음만 보내주세요`} />
       </Wrapper>
       </motion.div>
       <motion.div
