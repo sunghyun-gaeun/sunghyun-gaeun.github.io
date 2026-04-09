@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { IData } from "@/types/data";
 import { useColor } from "@/context/ColorContext";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import NeonSign from "@/components/NeonSign.tsx";
 
 interface LayoutProp {
   id: string;
@@ -91,7 +92,7 @@ const SimpleLayout = ({ id, data }: LayoutProp) => {
       </motion.div>
       <motion.div>
       <Wrapper>
-        <Heading1 text={`화환은 로비 공간이 부족하니,\n마음만 보내주세요`} />
+        <NeonSign text={`화환은 로비 공간이 부족하니,\n마음만 보내주세요`} />
       </Wrapper>
       </motion.div>
       <motion.div
