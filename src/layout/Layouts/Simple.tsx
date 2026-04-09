@@ -89,6 +89,11 @@ const SimpleLayout = ({ id, data }: LayoutProp) => {
           <Location mapInfo={data.mapInfo} />
         </Wrapper>
       </motion.div>
+      <motion.div>
+      <Wrapper>
+        <NeonSign text={`화환은 로비 공간이 부족하니,\n마음만 보내주세요`} />
+      </Wrapper>
+      </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
