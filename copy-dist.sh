@@ -24,7 +24,7 @@ for pageId in $(jq -r 'keys[]' "$INPUT"); do
   cat dist/index.html \
     | sed "s/우리 결혼해요/$title/g" \
     | sed "s/Our Wedding Day/$title/g" \
-    | sed "s/weddingmain2.jpg/$pageId\/main\/main.png/g" \
+    | sed "s/weddingmain.jpg/$pageId\/main\/main.png/g" \
     > "$OUTPUT_DIR/$pageId/index.html"
 
   echo "✅ Created $OUTPUT_DIR/$pageId/index.html"
