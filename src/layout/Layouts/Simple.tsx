@@ -12,7 +12,6 @@ import { motion } from "framer-motion";
 import { IData } from "@/types/data";
 import { useColor } from "@/context/ColorContext";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import NeonSign from "@/components/NeonSign.tsx";
 
 interface LayoutProp {
   id: string;
@@ -89,11 +88,6 @@ const SimpleLayout = ({ id, data }: LayoutProp) => {
           </Heading1>
           <Location mapInfo={data.mapInfo} />
         </Wrapper>
-      </motion.div>
-      <motion.div>
-      <Wrapper>
-        <NeonSign text={`웰컴 드링크가 준비되어 있으니,\n많은 이용 부탁드립니다`} />
-      </Wrapper>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
