@@ -1,11 +1,12 @@
 import { Gallery, Item } from "react-photoswipe-gallery";
 import "photoswipe/style.css";
 import React, { useState, useEffect } from "react";
-import {getImagesById} from "@/layout/Gallery/Images.ts";
+import { getImagesById } from "@/layout/Gallery/Images.ts";
 
 interface ImageSize {
   alt: string;
-  source: string;
+  thumbnail: string;
+  original: string;
   width: number;
   height: number;
 }
@@ -20,24 +21,36 @@ const PhotoGallery = ({ id }: { id: string }) => {
         images.map((image) => {
           return new Promise<ImageSize>((resolve) => {
             const img = new Image();
-            img.src = image.source;
+            img.src = image.original;
+
             img.onload = () => {
               resolve({
                 alt: image.alt,
-                source: image.source,
-                width: img.naturalWidth, // 원본 너비
-                height: img.naturalHeight, // 원본 높이
+                thumbnail: image.thumbnail,
+                original: image.original,
+                width: img.naturalWidth,
+                height: img.naturalHeight,
+              });
+            };
+
+            img.onerror = () => {
+              resolve({
+                alt: image.alt,
+                thumbnail: image.thumbnail,
+                original: image.original,
+                width: 1200,
+                height: 800,
               });
             };
           });
         })
       );
-      console.log('image ', sizes)
-      setImageSizes(sizes); // 상태 업데이트
+
+      setImageSizes(sizes);
     };
 
     loadImageSizes();
-  }, []);
+  }, [id]);
 
   const smallItemStyles: React.CSSProperties = {
     cursor: "pointer",
@@ -59,28 +72,27 @@ const PhotoGallery = ({ id }: { id: string }) => {
           gap: 8,
         }}
       >
-        {imageSizes.map((image, index) => {
-          return (
-            <Item
-              key={index}
-              cropped
-              original={image.source}
-              thumbnail={image.source}
-              width={image.width} // 동적으로 계산된 원본 크기
-              height={image.height} // 동적으로 계산된 원본 크기
-            >
-              {({ ref, open }) => (
-                <img
-                  style={smallItemStyles}
-                  alt={image.alt}
-                  src={image.source}
-                  ref={ref}
-                  onClick={open}
-                />
-              )}
-            </Item>
-          );
-        })}
+        {imageSizes.map((image, index) => (
+          <Item
+            key={index}
+            cropped
+            original={image.original}
+            thumbnail={image.thumbnail}
+            width={image.width}
+            height={image.height}
+          >
+            {({ ref, open }) => (
+              <img
+                ref={ref as React.Ref<HTMLImageElement>}
+                onClick={open}
+                src={image.thumbnail}
+                alt={image.alt}
+                style={smallItemStyles}
+                loading="lazy"
+              />
+            )}
+          </Item>
+        ))}
       </div>
     </Gallery>
   );
