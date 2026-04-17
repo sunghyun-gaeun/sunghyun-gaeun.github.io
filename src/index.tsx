@@ -15,7 +15,7 @@ import petal from "@/assets/icons/petal3.png";
 
 const IndexPage = () => {
   const db: Record<string, IData> = rawData;
-  const ncpClientId = "utqv4o6kny";
+  const ncpKeyId = "utqv4o6kny";
   const { pageIdTemp } = useParams();
   const pageId = pageIdTemp ?? "default";
   // db가 비었거나, 유효한 키가 전혀 없을 때만 Not Found
@@ -59,7 +59,7 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <NavermapsProvider ncpClientId={ncpClientId}>
+    <NavermapsProvider ncpKeyId={ncpKeyId} submodules={["geocoder"]}>
       <HelmetProvider>
         <ColorProvider id={pageId}>
           <Helmet>

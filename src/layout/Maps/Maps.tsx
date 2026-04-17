@@ -11,10 +11,7 @@ interface MapProps {
 }
 const Maps = ({ address }: MapProps) => {
   const navermaps = useNavermaps();
-  const [coords, setCoords] = useState<{ lat: number; lng: number }>({
-    lat: 0.0,
-    lng: 0.0,
-  });
+  const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
 
   useEffect(() => {
     if (!address) return;
@@ -40,15 +37,18 @@ const Maps = ({ address }: MapProps) => {
     });
   }, [address]);
 
+  if (!coords) {
+    return (
+      <MapDiv style={{ width: "100%", height: "300px" }}>
+        <div style={{ padding: "1rem", textAlign: "center" }}>지도를 불러오는 중...</div>
+      </MapDiv>
+    );
+  }
+
   return (
-    <MapDiv
-      style={{
-        width: "100%",
-        height: "300px",
-      }}
-    >
+    <MapDiv style={{ width: "100%", height: "300px" }}>
       <NaverMap
-        center={new navermaps.LatLng(coords.lat, coords.lng)}
+        defaultCenter={new navermaps.LatLng(coords.lat, coords.lng)}
         defaultZoom={18}
         draggable={false}
         pinchZoom={false}
