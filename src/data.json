@@ -64,8 +64,14 @@
         "host": "신랑측",
         "accountInfo": [
           {
-            "name": "남창기, 강양숙",
-            "relation": "신랑 아버지, 어머니",
+            "name": "남창기",
+            "relation": "신랑 아버지",
+            "bank": "한국시티은행",
+            "account": "303-02914-261"
+          },
+          {
+            "name": "강양숙",
+            "relation": "신랑 어머니",
             "bank": "농협",
             "account": "528-02-014422"
           },
