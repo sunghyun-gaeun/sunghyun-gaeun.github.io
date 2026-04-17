@@ -59,7 +59,9 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <NavermapsProvider ncpKeyId={ncpKeyId} submodules={["geocoder"]}>
+    <NavermapsProvider 
+      ncpKeyId={ncpKeyId} 
+      submodules={["geocoder"]}>
       <HelmetProvider>
         <ColorProvider id={pageId}>
           <Helmet>
