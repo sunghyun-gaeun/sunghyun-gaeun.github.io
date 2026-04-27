@@ -15,7 +15,7 @@ import petal from "@/assets/icons/petal3.png";
 
 const IndexPage = () => {
   const db: Record<string, IData> = rawData;
-  const ncpKeyId = "utqv4o6kny";
+  const ncpKeyId = "g9flot2g1r";
   const { pageIdTemp } = useParams();
   const pageId = pageIdTemp ?? "default";
   // db가 비었거나, 유효한 키가 전혀 없을 때만 Not Found
